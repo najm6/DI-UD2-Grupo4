@@ -135,10 +135,6 @@ class _PantallaInicioState extends State<PantallaInicio> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Buenas tardes 👋',
-                    style: TextStyle(color: ColoresSonora.textoSecundario),
-                  ),
                   SizedBox(height: 4),
                   Text(
                     'Descubre música',
