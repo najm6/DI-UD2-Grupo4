@@ -1,0 +1,10 @@
+include: package:very_good_analysis/analysis_options.yaml
+
+analyzer:
+  exclude:
+    - build/**
+
+linter:
+  rules:
+    # Mantenemos la sintaxis clásica de constructor: TarjetaArtista(...)
+    unnecessary_type_name_in_constructor: false
