@@ -1,0 +1,30 @@
+name: app_final
+description: "Pantalla final que integra los componentes del grupo 4."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Componentes del grupo, importados desde sus paquetes locales
+  tarjeta_artista:
+    path: ../packages/tarjeta_artista
+  tarjeta_cancion:
+    path: ../packages/tarjeta_cancion
+  promo_desplegable:
+    path: ../packages/promo_desplegable
+  valoracion_estrellas:
+    path: ../packages/valoracion_estrellas
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/artistas/
