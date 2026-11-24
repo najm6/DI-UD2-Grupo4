@@ -3,7 +3,7 @@ import 'package:tarjeta_artista/tarjeta_artista.dart';
 
 void main() => runApp(const AppDemo());
 
-/// Colores compartidos de la pantalla (los del diseño en Figma).
+/// Colores del diseño en Figma.
 class ColoresApp {
   static const fondo = Color(0xFF0E0E10);
   static const acento = Color(0xFFD4FF3A);
@@ -30,19 +30,26 @@ class AppDemo extends StatelessWidget {
 
 /// Datos de ejemplo de un artista.
 class Artista {
-  const Artista(this.nombre, this.genero, this.color, {this.seguido = false});
+  const Artista(this.nombre, this.genero, this.foto, {this.seguido = false});
 
   final String nombre;
   final String genero;
-  final Color color;
+
+  /// Ruta de la foto dentro de assets/artistas.
+  final String foto;
   final bool seguido;
 }
 
 const artistas = [
-  Artista('Luna Ferrer', 'Pop', Color(0xFF4338CA), seguido: true),
-  Artista('Kairo', 'Reggaetón', Color(0xFFC2410C)),
-  Artista('Los Faros', 'Indie rock', Color(0xFF0F766E)),
-  Artista('Mara Sol', 'R&B', Color(0xFFB45309)),
+  Artista(
+    'Taylor Swift',
+    'Pop',
+    'assets/artistas/taylor_swift.jpeg',
+    seguido: true,
+  ),
+  Artista('Bad Bunny', 'Reggaetón', 'assets/artistas/bad_bunny.jpeg'),
+  Artista('Young Thug', 'Rap', 'assets/artistas/young_thug.jpeg'),
+  Artista('The Weeknd', 'R&B', 'assets/artistas/the_weeknd.jpeg'),
 ];
 
 class PantallaInicio extends StatefulWidget {
@@ -115,7 +122,7 @@ class _PantallaInicioState extends State<PantallaInicio> {
                     TarjetaArtista(
                       nombre: artista.nombre,
                       genero: artista.genero,
-                      colorAvatar: artista.color,
+                      imagen: AssetImage(artista.foto),
                       seguido: artista.seguido,
                       alCambiarSeguimiento: (siguiendo) {
                         setState(() {
@@ -139,8 +146,6 @@ class _PantallaInicioState extends State<PantallaInicio> {
                 ],
               ),
             ),
-            // Aquí irán los componentes del resto del grupo:
-            // TarjetaCancion, PromoDesplegable y ValoracionEstrellas.
           ],
         ),
       ),
